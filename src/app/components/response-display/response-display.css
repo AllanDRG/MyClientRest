@@ -1,0 +1,47 @@
+.response-wrapper {
+  margin-top: 2rem; /* Espacio entre el form y la respuesta */
+}
+
+.loading-bar {
+  margin-bottom: 1rem;
+}
+
+.response-card {
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no desborde */
+}
+
+.status-title {
+  font-weight: bold;
+}
+
+/* Colores para las tarjetas de éxito y error */
+.response-card.success {
+  border-left: 5px solid #4CAF50; /* Borde verde */
+}
+
+.response-card.error {
+  border-left: 5px solid #F44336; /* Borde rojo */
+}
+
+.status-title.error-title {
+  color: #F44336; /* Texto de status en rojo */
+}
+
+/* Estilos para el visor de JSON (fondo oscuro) */
+ngx-json-viewer {
+  display: block; 
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #212121; /* Fondo oscuro */
+  overflow-x: auto;
+  color: white; /* Texto blanco para el JSON */
+}
+
+.placeholder {
+  padding: 2rem;
+  text-align: center;
+  color: #777;
+  border: 2px dashed #444;
+  border-radius: 8px;
+}

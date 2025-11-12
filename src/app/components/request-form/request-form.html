@@ -1,0 +1,73 @@
+<mat-card>
+  <mat-card-content>
+
+    <div class="request-container" [formGroup]="requestForm">
+
+      <div class="form-row">
+
+        <mat-form-field appearance="outline" class="method-select">
+          <mat-label>Método</mat-label>
+          <mat-select formControlName="method">
+            <mat-option *ngFor="let method of httpMethods" [value]="method">
+              {{ method }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="url-input">
+          <mat-label>URL</mat-label>
+          <input matInput placeholder="https://api.example.com" formControlName="url">
+        </mat-form-field>
+      </div>
+
+      <mat-tab-group animationDuration="0ms">
+
+        <mat-tab label="Body" [disabled]="!requestForm.get('body')?.enabled">
+          <mat-form-field appearance="outline" class="body-container">
+            <mat-label>Body (JSON)</mat-label>
+            <textarea 
+              matInput 
+              class="body-textarea" 
+              placeholder="{ &quot;key&quot;: &quot;value&quot; }"
+              formControlName="body"></textarea>
+          </mat-form-field>
+        </mat-tab>
+
+        <mat-tab label="Headers">
+          <div class="headers-container">
+            <div formArrayName="headers">
+              <div *ngFor="let header of headers.controls; let i = index" [formGroupName]="i" class="header-row">
+                <mat-form-field appearance="outline" class="header-input">
+                  <mat-label>Key</mat-label>
+                  <input matInput formControlName="key">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="header-input">
+                  <mat-label>Value</mat-label>
+                  <input matInput formControlName="value">
+                </mat-form-field>
+                <button mat-icon-button color="warn" (click)="removeHeader(i)" type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+            <button mat-stroked-button color="primary" (click)="addHeader()" type="button" class="add-btn">
+              <mat-icon>add</mat-icon>
+              Añadir Header
+            </button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+
+      <button 
+        mat-flat-button 
+        color="primary" 
+        class="send-button"
+        (click)="onSubmit()" 
+        [disabled]="!requestForm.valid || isLoading">
+
+        {{ isLoading ? 'Loading...' : 'Send' }}
+
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

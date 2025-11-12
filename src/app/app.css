@@ -1,0 +1,10 @@
+.main-container {
+  max-width: 1200px;  /* Ancho máximo, no se estirará más en monitores gigantes */
+  margin: 0 auto;     /* Centra el contenedor horizontalmente */
+  padding: 1rem 2rem; /* 1rem arriba/abajo, 2rem (más grande) a los lados */
+}
+/* Centramos el título principal de la app */
+h1 {
+  text-align: center;
+  color: #333; /* Un color de texto oscuro, más suave que el negro puro */
+}

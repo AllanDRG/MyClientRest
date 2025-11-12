@@ -1,0 +1,60 @@
+.request-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center; /* Alinea el select y el input */
+}
+
+.method-select {
+  width: 150px; /* Ancho fijo para el método */
+}
+
+.url-input {
+  flex: 1; /* Ocupa el resto del espacio */
+}
+
+/* Hacemos que las pestañas ocupen todo el ancho */
+.mat-tab-group {
+  width: 100%;
+}
+
+.body-container {
+  width: 100%;
+  margin-top: 1rem; /* Espacio superior para el textarea */
+}
+
+.body-textarea {
+  min-height: 150px;
+  font-family: monospace; /* Mantenemos la fuente para JSON */
+}
+
+.headers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0; /* Espacio dentro de la pestaña de headers */
+}
+
+.header-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header-input {
+  flex: 1;
+}
+
+.add-btn {
+  align-self: flex-start; /* Botón de añadir no ocupa todo el ancho */
+}
+
+.send-button {
+  padding: 1.5rem 0; /* Un botón de envío más grande */
+  font-size: 1.1rem;
+}
